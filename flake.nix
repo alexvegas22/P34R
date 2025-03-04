@@ -18,9 +18,12 @@
             pkgs.gopls
             pkgs.delve
             pkgs.gotools
+            pkgs.golint
+            pkgs.zsh
           ];
 
           shellHook = ''
+            export SHELL=${pkgs.zsh}/bin/zsh
             echo "P34R Go Shell!"
           '';
         };
