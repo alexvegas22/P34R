@@ -1,0 +1,18 @@
+* Setting up Go/go-mode for emacs
+
+You first need to download go-mode from github (or link it from your go installation : ~/go/emacs/go-mode.el) [[https://github.com/dominikh/go-mode.el.git][go-mode.el]]
+
+You can place it in your .emacs.d config and reference it like this :
+
+#+BEGIN_SRC elisp
+  (add-to-list 'load-path "~/.emacs.d/go-mode.el")
+  (autoload 'go-mode "go-mode" nil t)
+  (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+
+  (add-hook 'go-mode-hook
+            (lambda ()
+              (setq indent-tabs-mode nil)
+              (setq tab-width 4)
+              (setq go-tab-width 4)
+              (setq c-basic-offset 4)))
+#+END_SRC
